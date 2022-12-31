@@ -9,13 +9,54 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            Color.blue
+            LinearGradient(colors: [.blue, .white], startPoint: .bottom, endPoint: .top)
+                .ignoresSafeArea()
+            
+            VStack {
+                Text("Cupertino, CA")
+                    .font(.largeTitle)
+                    .foregroundColor(.white)
+                
+                VStack {
+                    Image(systemName: "sun.min")
+                        .font(.largeTitle)
+                    Text("76°")
+                        .font(.largeTitle)
+                }
+                
+                HStack {
+                    VStack {
+                        Text("Tues")
+                        Image(systemName: "snow")
+                        Text("76°")
+                    }
+                    VStack {
+                        Text("Tues")
+                        Image(systemName: "snow")
+                        Text("76°")
+                    }
+                    VStack {
+                        Text("Tues")
+                        Image(systemName: "snow")
+                        Text("76°")
+                    }
+                    VStack {
+                        Text("Tues")
+                        Image(systemName: "snow")
+                        Text("76°")
+                    }
+                    VStack {
+                        Text("Tues")
+                        Image(systemName: "snow")
+                        Text("76°")
+                    }
+                    
+                }
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
