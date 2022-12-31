@@ -15,49 +15,24 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             VStack {
-                Text("Cupertino, CA")
-                    .font(.largeTitle)
-                    .foregroundColor(.white)
+                CityTextView(cityName: "Cupertino, CA")
                 
                 Spacer()
                 
-                VStack {
-                    Image(systemName: "sun.min")
-                        .font(.largeTitle)
-                    Text("76°")
-                        .font(.largeTitle)
-                }
+                MainWeatherView(imageName: "sun.min", temperature: 76)
                 
                 Spacer()
                 
                 HStack {
-                    VStack {
-                        Text("Tues")
-                        Image(systemName: "snow")
-                        Text("76°")
-                    }
-                    VStack {
-                        Text("Tues")
-                        Image(systemName: "snow")
-                        Text("76°")
-                    }
-                    VStack {
-                        Text("Tues")
-                        Image(systemName: "snow")
-                        Text("76°")
-                    }
-                    VStack {
-                        Text("Tues")
-                        Image(systemName: "snow")
-                        Text("76°")
-                    }
-                    VStack {
-                        Text("Tues")
-                        Image(systemName: "snow")
-                        Text("76°")
-                    }
+                    WeekWeatherView(dayOfWeek: "Tue", imageName: "cloud.rain.fill", temperature: 68)
+                    WeekWeatherView(dayOfWeek: "Wed", imageName: "cloud.bolt.fill", temperature: 50)
+                    WeekWeatherView(dayOfWeek: "Thu", imageName: "cloud.fill", temperature: 74)
+                    WeekWeatherView(dayOfWeek: "Fri", imageName: "cloud.sun.rain.fill", temperature: 66)
+                    WeekWeatherView(dayOfWeek: "Sat", imageName: "sun.haze.fill", temperature: 79)
                 }
+                
                 Spacer()
+                
                 Button {
                     print("hello")
                 } label: {
@@ -77,5 +52,60 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct CityTextView: View {
+    
+    var cityName: String
+    
+    var body: some View {
+        Text(cityName)
+            .font(.largeTitle)
+            .foregroundColor(.white)
+    }
+}
+
+struct MainWeatherView: View {
+    
+    var imageName: String
+    var temperature: Int
+    
+    var body: some View {
+        
+        VStack {
+            Image(systemName: imageName)
+                .renderingMode(.original)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 180, height: 180)
+            Text("\(temperature)°")
+                .font(.system(size: 70, weight: .medium))
+                .foregroundColor(.white)
+        }
+        
+    }
+}
+
+struct WeekWeatherView: View {
+    
+    var dayOfWeek: String
+    var imageName: String
+    var temperature: Int
+    
+    var body: some View {
+        VStack {
+            Text(dayOfWeek)
+                .font(.system(size: 16, weight: .medium, design: .default))
+                .foregroundColor(.white)
+            Image(systemName: imageName)
+                .renderingMode(.original)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 40, height: 40)
+            Text("\(temperature)°")
+                .font(.system(size: 28, weight: .medium))
+                .foregroundColor(.white)
+        }
     }
 }
