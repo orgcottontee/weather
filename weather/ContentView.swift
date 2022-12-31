@@ -19,12 +19,16 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .foregroundColor(.white)
                 
+                Spacer()
+                
                 VStack {
                     Image(systemName: "sun.min")
                         .font(.largeTitle)
                     Text("76°")
                         .font(.largeTitle)
                 }
+                
+                Spacer()
                 
                 HStack {
                     VStack {
@@ -52,7 +56,17 @@ struct ContentView: View {
                         Image(systemName: "snow")
                         Text("76°")
                     }
-                    
+                }
+                Spacer()
+                Button {
+                    print("hello")
+                } label: {
+                    Text("Change Day Time")
+                        .frame(width: 280, height: 50)
+                        .background(Color.white)
+                        .foregroundColor(.black)
+                        .font(.system(size: 20, weight: .bold))
+                        .cornerRadius(10)
                 }
             }
             .padding()
