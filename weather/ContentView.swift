@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var isNight = true
+    
     var body: some View {
         ZStack {
             Color.blue
@@ -55,6 +58,13 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+struct BackgroundView: View {
+    
+    var body: some View {
+        LinearGradient(gradient: Gradient(colors: [isNight ? .black : .blue, isNight ? .gray : Color("lightBlue")]), startPoint: .topLeading, endPoint: .bottomTrailing)
+    }
+}
+
 struct CityTextView: View {
     
     var cityName: String
@@ -83,7 +93,7 @@ struct MainWeatherView: View {
                 .font(.system(size: 70, weight: .medium))
                 .foregroundColor(.white)
         }
-        
+
     }
 }
 
