@@ -13,14 +13,15 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            BackgroundView(isNight: isNight)
-            
+            BackgroundView(topColor: Color("purple"),
+                           midColor: Color("green"),
+                           bottomColor: Color("brown"),
+                           isNight: false)
+    
             VStack {
                 CityTextView(cityName: "Cupertino, CA")
-                
-                Spacer()
-                
-                MainWeatherView(imageName: "sun.min", temperature: 76)
+                                
+                MainWeatherView(imageName: "sun.max.fill", temperature: 76)
                 
                 Spacer()
                 
@@ -53,69 +54,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    }
-}
-
-struct BackgroundView: View {
-    
-    var isNight: Bool
-    
-    var body: some View {
-        LinearGradient(gradient: Gradient(colors: [isNight ? .black : .blue, isNight ? .gray : Color("lightBlue")]), startPoint: .topLeading, endPoint: .bottomTrailing)
-    }
-}
-
-struct CityTextView: View {
-    
-    var cityName: String
-    
-    var body: some View {
-        Text(cityName)
-            .font(.largeTitle)
-            .foregroundColor(.white)
-    }
-}
-
-struct MainWeatherView: View {
-    
-    var imageName: String
-    var temperature: Int
-    
-    var body: some View {
-        
-        VStack {
-            Image(systemName: imageName)
-                .renderingMode(.original)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 180, height: 180)
-            Text("\(temperature)°")
-                .font(.system(size: 70, weight: .medium))
-                .foregroundColor(.white)
-        }
-
-    }
-}
-
-struct WeekWeatherView: View {
-    
-    var dayOfWeek: String
-    var imageName: String
-    var temperature: Int
-    
-    var body: some View {
-        VStack {
-            Text(dayOfWeek)
-                .font(.system(size: 16, weight: .medium, design: .default))
-                .foregroundColor(.white)
-            Image(systemName: imageName)
-                .renderingMode(.original)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 40, height: 40)
-            Text("\(temperature)°")
-                .font(.system(size: 28, weight: .medium))
-                .foregroundColor(.white)
-        }
     }
 }
