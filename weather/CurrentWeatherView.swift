@@ -14,7 +14,7 @@ struct CityTextView: View {
     var body: some View {
         Text(cityName)
             .font(.largeTitle)
-            .foregroundColor(.white)
+            .foregroundColor(Color("TextColor"))
     }
 }
 
@@ -32,8 +32,8 @@ struct MainWeatherView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 180, height: 180)
             Text("\(temperature)°")
-                .font(.system(size: 70, weight: .medium))
-                .foregroundColor(.white)
+                .font(.system(size: 100, weight: .medium))
+                .foregroundColor(Color("TextColor"))
         }
         
     }

@@ -17,7 +17,7 @@ struct WeekWeatherView: View {
         VStack {
             Text(dayOfWeek)
                 .font(.system(size: 16, weight: .medium, design: .default))
-                .foregroundColor(.white)
+                .foregroundColor(Color("TextColor"))
             Image(systemName: imageName)
                 .renderingMode(.original)
                 .resizable()
@@ -25,7 +25,7 @@ struct WeekWeatherView: View {
                 .frame(width: 40, height: 40)
             Text("\(temperature)°")
                 .font(.system(size: 28, weight: .medium))
-                .foregroundColor(.white)
+                .foregroundColor(Color("TextColor"))
         }
     }
 }

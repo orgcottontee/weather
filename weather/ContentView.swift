@@ -43,10 +43,10 @@ struct ContentView: View {
                         .background(Color.white)
                         .foregroundColor(.black)
                         .font(.system(size: 20, weight: .bold))
-                        .cornerRadius(10)
+                        .cornerRadius(5)
                 }
             }
-            .padding()
+            .padding(100)
         }
     }
 }
